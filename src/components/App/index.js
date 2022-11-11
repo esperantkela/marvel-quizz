@@ -15,7 +15,12 @@ function App() {
 
      <BrowserRouter>
         <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/not-found" element={<ErrorPage />} />
         </Routes>
      </BrowserRouter>
      <Footer/>
