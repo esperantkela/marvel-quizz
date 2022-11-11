@@ -3,6 +3,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 import Landing from '../Landing';
 import Login from '../Login';
+import SignUp from '../SignUp.js';
 import Welcome from '../Welcome';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
      <Welcome/>
      <Landing/>
      <Login/>
-     
+     <SignUp/>
      <Footer/>
     </div>
   );
