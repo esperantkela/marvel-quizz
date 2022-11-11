@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../Firebase/firebaseConfig';
 
 const SignUp = () => {
     const data = {
@@ -9,13 +11,37 @@ const SignUp = () => {
     }
 
     const [loginData, setLoginData] = useState(data);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         console.log(e)
         setLoginData({...loginData, [e.target.id]: e.target.value})
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const {email, password} = loginData
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(user => {
+            setLoginData({...data})
+        })
+        .catch(error => {
+            setError(error)
+            setLoginData({...data})
+        })
+       
+        
+
+    }
+
     const {pseudo, email, password, confirmPassword} = loginData;
+
+    const btn = pseudo === '' || email === '' || password === '' || password !== confirmPassword
+    ? <button  disabled>Inscription</button> : <button>Inscription</button> 
+
+    //error handle
+
+    const errorMsg = error !== '' && <span>{error.message}</span>
 
   return (
     <div className='signUpLoginBBox'>
@@ -25,8 +51,9 @@ const SignUp = () => {
             </div>
             <div className='formBoxRight'>
                 <div className='formContent'>
+                    {errorMsg}
                     <h2>Inscription</h2>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className='inputBox'>
                             <input onChange={handleChange} value={pseudo} type='text' id='pseudo' required/>
                             <label htmlFor='pseudo'>Pseudo</label>
@@ -43,6 +70,7 @@ const SignUp = () => {
                             <input onChange={handleChange} value={confirmPassword} type='password' id='confirmPassword' required/>
                             <label htmlFor='confirmPassword'>Confirmer le mot de passe</label>
                         </div>
+                        {btn}
                     </form>
                 </div>
             </div>
