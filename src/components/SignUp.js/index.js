@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../Firebase/firebaseConfig';
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 const SignUp = () => {
     const data = {
@@ -12,6 +15,7 @@ const SignUp = () => {
 
     const [loginData, setLoginData] = useState(data);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         console.log(e)
