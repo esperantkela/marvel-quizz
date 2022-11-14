@@ -76,6 +76,9 @@ const SignUp = () => {
                         </div>
                         {btn}
                     </form>
+                    <div className='linkContainer'>
+                        <Link className='simpleLink' to='/login'>Déjà inscrit? connectez-vous</Link>
+                    </div>
                 </div>
             </div>
        </div>
