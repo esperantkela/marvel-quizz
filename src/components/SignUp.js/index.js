@@ -28,6 +28,7 @@ const SignUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then(user => {
             setLoginData({...data})
+            navigate('/welcome');
         })
         .catch(error => {
             setError(error)
