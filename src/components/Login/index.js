@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [btn, setBtn] = useState('');
+    const [btn, setBtn] = useState(false);
 
     const handleEmail = (event) =>{
         setEmail(event.target.value);
@@ -13,6 +13,13 @@ const Login = () => {
     const handlePassword = (event) =>{
         setPassword(event.target.value);
     }
+
+    useEffect(() => {
+        
+        if(password.length > 5 && email != ''){
+            setBtn(true);
+        }
+    }, [])
 
   return (
     <div className='signUpLoginBox'>
