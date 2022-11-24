@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Logout = () => {
+const Quiz = () => {
   return (
-    <div>Logout</div>
+    <div>Quiz</div>
   )
 }
 
-export default Logout
+export default Quiz
