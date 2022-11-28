@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router';
 import { signOut } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
 
 const Logout = () => {
 
   const [checked, setChecked] = useState(false);
+  const navigate = useNavigate()
 
   const handleChange = (e) =>{
     setChecked(e.target.checked)
@@ -13,9 +15,13 @@ const Logout = () => {
   useEffect(() => {
     if(checked){
       signOut(auth).then(() => {
+        setTimeout(() => {
+          navigate('/login')
+        }, 1000);
+
         console.log('Déconnexion')
       }).catch((error) => {
-        // An error happened.
+        console.log(error)
       });
     }
   }, [checked])
