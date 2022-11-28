@@ -9,7 +9,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [btn, setBtn] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
 
     const navigate = useNavigate()
 
@@ -54,7 +54,8 @@ const Login = () => {
             <div className='formBoxRight'>
                 <div className='formContent'>
                 {error !== '' && <span>{error.message}</span>}
-                    <h2>Connecxion</h2>
+
+                    <h2>Connexion</h2>
                     <form onSubmit={handleSubmit} >
                         <div className='inputBox'>
                             <input onChange={handleEmail}       value={email} type='email' id='email' required/>
