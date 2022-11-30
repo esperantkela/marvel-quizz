@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router'
 import { auth } from '../Firebase/firebaseConfig'
 import Logout from '../Logout'
 import Quiz from '../Quiz'
-import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
 
