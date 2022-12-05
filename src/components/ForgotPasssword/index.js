@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
