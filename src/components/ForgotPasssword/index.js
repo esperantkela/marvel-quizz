@@ -5,9 +5,12 @@ const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
     }
+
+    const disabled = email === "";
     
   return (
     <div className='signUpLoginBox'>
@@ -23,6 +26,7 @@ const ForgotPassword = () => {
                             <input onChange={(e) => setEmail(e.target.value)}  value={email} type='email' id='email' required/>
                             <label htmlFor='email'>Email</label>
                         </div>
+                        <button disabled={disabled}>Récupérer</button>
                     </form>
                     <div className='linkContainer'>
                         <Link className='simpleLink' to='/register'>Pas de compte? Inscrivez-vous</Link>
