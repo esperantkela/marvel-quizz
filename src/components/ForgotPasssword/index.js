@@ -17,7 +17,7 @@ const ForgotPassword = () => {
             </div>
             <div className='formBoxRight'>
                 <div className='formContent'>
-                    <h2>Connexion</h2>
+                    <h2>Mot de passe oublié </h2>
                     <form onSubmit={handleSubmit} >
                         <div className='inputBox'>
                             <input onChange={(e) => setEmail(e.target.value)}  value={email} type='email' id='email' required/>
