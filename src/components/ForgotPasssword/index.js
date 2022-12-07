@@ -22,7 +22,20 @@ const ForgotPassword = () => {
             </div>
             <div className='formBoxRight'>
                 <div className='formContent'>
-                {success && <span style={}>{success}</span>}
+                {
+                    success && <span 
+                    style=
+                    {{ 
+                        border : "1px solid green",
+                        background : 'green',
+                        color : '#ffffff'
+                    }}>
+                 {success}
+                 </span>
+
+                 }
+                 
+                 {error &&   <span>{error.message}</span>}
                     <h2>Mot de passe oublié </h2>
                     <form onSubmit={handleSubmit} >
                         <div className='inputBox'>

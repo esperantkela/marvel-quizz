@@ -69,7 +69,8 @@ const Login = () => {
                         {<button disabled={btn ? false : true}>Connexion</button> }
                     </form>
                     <div className='linkContainer'>
-                        <Link className='simpleLink' to='/register'>Pas de compte? Inscrivez-vous</Link>
+                        <Link className='simpleLink' to='/register'>Pas de compte? Inscrivez-vous</Link> <br/>
+                        <Link className='simpleLink' to='/forgot-password'>Mot de passe oublié ? Récupérez-le ici</Link>
                     </div>
                 </div>
             </div>
