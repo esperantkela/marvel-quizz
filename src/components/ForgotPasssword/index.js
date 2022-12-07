@@ -1,14 +1,35 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../Firebase/firebaseConfig';
+
 
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(null);
     const [error, setError] = useState(null);
+    
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+
+            setError(null)
+            setSuccess(`Consulter votre email ${email} pour changer le mot de passe`)
+            setEmail('')
+
+            setTimeout(() => {
+                navigate('/login')
+            }, 5000)
+        })
+        .catch((error) => {
+            setError(error)
+            setEmail('')
+        })
         
     }
 
@@ -34,7 +55,7 @@ const ForgotPassword = () => {
                  </span>
 
                  }
-                 
+
                  {error &&   <span>{error.message}</span>}
                     <h2>Mot de passe oublié </h2>
                     <form onSubmit={handleSubmit} >
