@@ -8,6 +8,7 @@ import Quiz from '../Quiz'
 const Welcome = () => {
 
   const [userSession, setUserSession] = useState(null);
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate()
 
   useEffect(() => {
