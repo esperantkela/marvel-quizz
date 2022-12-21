@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Quiz = () => {
+const Quiz = ({ userData }) => {
   return (
-    <div>Quiz</div>
+    <div>{ userData.pseudo }</div>
   )
 }
 
