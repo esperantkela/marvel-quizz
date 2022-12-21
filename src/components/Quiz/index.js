@@ -1,8 +1,9 @@
 import React from 'react'
 
 const Quiz = ({ userData }) => {
+  
   return (
-    <div>{ userData.pseudo }</div>
+    <div> Pseudo : { userData.pseudo } </div>
   )
 }
 

@@ -25,9 +25,10 @@ const Welcome = () => {
       getDoc(colRef)
       .then((snapshop) => {
         if(snapshop.exists()){
-            const docData = snapshop.data
+            const docData = snapshop.data();
 
-            setUserData = docData
+            setUserData(docData)
+            
         }
       })
       .catch((error) =>{
@@ -36,8 +37,8 @@ const Welcome = () => {
     }
     return listerner
     
-  })
-
+  },[userSession])
+  console.log(userData)
   return userSession === null ? (
     <React.Fragment>
       <div className='loader'></div>
