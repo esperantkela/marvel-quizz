@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router'
 import { auth } from '../Firebase/firebaseConfig'
+import { getDoc } from 'firebase/firestore'
 import Logout from '../Logout'
 import Quiz from '../Quiz'
 
