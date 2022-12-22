@@ -1,9 +1,12 @@
 import React from 'react'
+import Levels from '../Levels'
 
 const Quiz = ({ userData }) => {
   
   return (
-    <div> Pseudo : { userData.pseudo } </div>
+    <div>
+      <Levels/>
+    </div>
   )
 }
 

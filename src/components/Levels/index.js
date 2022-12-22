@@ -2,7 +2,9 @@ import React from 'react'
 
 function Levels() {
   return (
-    <div>Levels</div>
+    <div className='levelsContainer'>
+        <h2 className='headingLevels'>Débutant</h2>
+    </div>
   )
 }
 
