@@ -13,7 +13,8 @@ class Quiz extends Component{
     'storedQuestions' : [],
     'question' : null,
     'options' : [],
-    'idQuestion' : 0
+    'idQuestion' : 0,
+    'btnDisabled' : true
   }
   
   loadQuestions = (quizz) => {
@@ -53,7 +54,7 @@ class Quiz extends Component{
         <ProgressBar/>
         <h2>{this.state.question}</h2>
         {displayOptions}
-        <button disabled className='btnSubmit'>Suivant</button>
+        <button disabled={this.btnDisabled} className='btnSubmit'>Suivant</button>
       </div>
     )
   }
