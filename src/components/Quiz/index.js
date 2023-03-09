@@ -6,7 +6,23 @@ import { QuizMarvel } from '../QuizMarvel'
 
 
 class Quiz extends Component{
+  constructor(props){
+    super()
+    this.state = {
+      'levelNames' : ['debutant','confirme','Expert'],
+      'quizLevel' : 0
+    }
+  }
+
+  loadQuestions = (quizz) => {
+    const fetchArrayQuiz =  QuizMarvel[0].quizz[quizz]
+  }
+
+  componentDidMount(){
+    this.loadQuestions(this.state.levelNames[this.state.quizLevel])
+  }
   render(){
+    
     return (
       <div>
         <Levels/>
