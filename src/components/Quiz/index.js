@@ -13,6 +13,9 @@ class Quiz extends Component{
         <ProgressBar/>
         <h2>Notre question Quiz</h2>
         <p className='answerOptions'>Question 1</p>
+        <p className='answerOptions'>Question 2</p>
+        <p className='answerOptions'>Question 3</p>
+        <p className='answerOptions'>Question 4</p>
       </div>
     )
   }
