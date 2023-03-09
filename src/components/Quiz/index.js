@@ -54,7 +54,7 @@ class Quiz extends Component{
         <ProgressBar/>
         <h2>{this.state.question}</h2>
         {displayOptions}
-        <button disabled={this.btnDisabled} className='btnSubmit'>Suivant</button>
+        <button disabled={this.state.btnDisabled} className='btnSubmit'>Suivant</button>
       </div>
     )
   }
