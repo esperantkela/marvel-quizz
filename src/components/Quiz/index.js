@@ -14,7 +14,8 @@ class Quiz extends Component{
     'question' : null,
     'options' : [],
     'idQuestion' : 0,
-    'btnDisabled' : true
+    'btnDisabled' : true,
+    'userAnswer' : null,
   }
   
   loadQuestions = (quizz) => {
@@ -42,10 +43,23 @@ class Quiz extends Component{
       })
     }
   }
+
+  submitAnswer = (selectedAnswer) =>{
+    this.setState({
+      'userAnswer': selectedAnswer,
+      'btnDisabled' : false
+    })
+
+  }
   render(){
     const displayOptions = this.state.options.map((option, index) => {
       return (
-        <p key={index} className='answerOptions'>{option}</p>
+        <p key={index} 
+          className={`answerOptions ${this.state.userAnswer === option ? 'selected' : ''}`}
+          onClick={() => this.submitAnswer(option)}
+        >
+          {option}
+        </p>
       )
     })
     return (
