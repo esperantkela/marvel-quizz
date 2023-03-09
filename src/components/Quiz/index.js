@@ -16,6 +16,7 @@ class Quiz extends Component{
         <p className='answerOptions'>Question 2</p>
         <p className='answerOptions'>Question 3</p>
         <p className='answerOptions'>Question 4</p>
+        <button className='btnSubmit'>Suivant</button>
       </div>
     )
   }
