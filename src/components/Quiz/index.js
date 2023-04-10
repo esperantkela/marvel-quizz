@@ -14,15 +14,22 @@ class Quiz extends Component {
     idQuestion: 0,
     btnDisabled: true,
     userAnswer: null,
+    score:0
   };
+
+  storeDataRef = React.createRef()
 
   loadQuestions = (quizz) => {
     const fetchArrayQuiz = QuizMarvel[0].quizz[quizz];
     if (fetchArrayQuiz.length >= this.state.maxQuestions) {
+
+      this.storeDataRef.current = fetchArrayQuiz;
+      
+
       const newArray = fetchArrayQuiz.map(
         ({ answer, ...keepRest }) => keepRest
       );
-      console.log(newArray);
+
       this.setState({
         storedQuestions: newArray,
       });
@@ -39,8 +46,17 @@ class Quiz extends Component {
     if(this.state.idQuestion === this.state.maxQuestions -1){
       //code
     }else{
-      
+      this.setState(prevState => ({
+        idQuestion: prevState.idQuestion +1
+      }))
     }
+   const goodAnswer = this.storeDataRef.current[this.state.idQuestion].answer;
+
+   if(this.state.userAnswer === goodAnswer) {
+    this.setState(prevState => ({
+      score: prevState.score + 1
+    }))
+   }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -49,6 +65,15 @@ class Quiz extends Component {
         question: this.state.storedQuestions[this.state.idQuestion].question,
         options: this.state.storedQuestions[this.state.idQuestion].options,
       });
+    }
+
+    if(this.state.idQuestion !== prevProps.idQuestion){
+      this.setState({
+        question: this.state.storedQuestions[this.state.idQuestion].question,
+        options: this.state.storedQuestions[this.state.idQuestion].options,
+        userAnswer : null,
+        btnDisabled : true
+      })
     }
   }
 
