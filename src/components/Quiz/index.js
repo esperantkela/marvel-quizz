@@ -67,7 +67,7 @@ class Quiz extends Component {
       });
     }
 
-    if(this.state.idQuestion !== prevProps.idQuestion){
+    if(this.state.idQuestion !== prevState.idQuestion){
       this.setState({
         question: this.state.storedQuestions[this.state.idQuestion].question,
         options: this.state.storedQuestions[this.state.idQuestion].options,
